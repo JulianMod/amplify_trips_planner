@@ -170,7 +170,7 @@ class Trip extends Model {
     return buffer.toString();
   }
   
-  Trip copyWith({String? tripName, String? destination, TemporalDate? startDate, TemporalDate? endDate, String? tripImageUrl, String? tripImageKey}) {
+  Trip copyWith({String? tripName, String? destination, TemporalDate? startDate, TemporalDate? endDate, String? tripImageUrl, String? tripImageKey, String? id}) {
     return Trip._internal(
       id: id,
       tripName: tripName ?? this.tripName,
