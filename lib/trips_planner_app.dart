@@ -1,5 +1,7 @@
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:amplify_trips_planner/features/trip/ui/edit_trip_page/edit_trip_page.dart';
 import 'package:amplify_trips_planner/features/trip/ui/trips_list/trips_list_page.dart';
+import 'package:amplify_trips_planner/models/Trip.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
@@ -39,7 +41,16 @@ class TripsPlannerApp extends StatelessWidget {
         builder: (context, state) {
               final tripId = state.params['id']!;
               return TripPage(tripId: tripId);
-        })
+        }),
+        GoRoute(
+            path: '/edittrip/:id',
+          name: AppRoute.edittrip.name,
+          builder: (context, state) {
+              return EditTripPage(
+                trip: state.extra! as Trip,
+              );
+          }
+        )
       ],
       errorBuilder: (context, state) => Scaffold(
         body: Center(
