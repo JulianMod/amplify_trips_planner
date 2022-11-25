@@ -172,7 +172,7 @@ class Trip extends Model {
   
   Trip copyWith({String? tripName, String? destination, TemporalDate? startDate, TemporalDate? endDate, String? tripImageUrl, String? tripImageKey, String? id}) {
     return Trip._internal(
-      id: id,
+      id: id ?? this.id,
       tripName: tripName ?? this.tripName,
       destination: destination ?? this.destination,
       startDate: startDate ?? this.startDate,
