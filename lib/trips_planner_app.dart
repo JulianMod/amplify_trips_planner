@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
 import 'common/navigation/router/routes.dart';
+import 'features/trip/ui/trip_page/trip_page.dart';
 
 class TripsPlannerApp extends StatelessWidget {
   const TripsPlannerApp({
@@ -32,6 +33,13 @@ class TripsPlannerApp extends StatelessWidget {
             ),
           ),
         ),
+        GoRoute(
+            path: '/trip/:id',
+        name: AppRoute.trip.name,
+        builder: (context, state) {
+              final tripId = state.params['id']!;
+              return TripPage(tripId: tripId);
+        })
       ],
       errorBuilder: (context, state) => Scaffold(
         body: Center(
