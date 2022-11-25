@@ -1,7 +1,6 @@
-import 'package:amplify_trips_planner/features/trip/controller/trips_list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:amplify_trips_planner/features/trip/controller/trips_controller.dart';
+import 'package:amplify_trips_planner/features/trip/controller/trip_controller.dart';
 
 class UploadProgressDialog extends ConsumerWidget {
   const UploadProgressDialog({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class UploadProgressDialog extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
         child: ValueListenableBuilder(
-          valueListenable: ref.read(tripsControllerProvider),
+          valueListenable: ref.read(tripControllerProvider).uploadProgress(),
           builder: (context, value, child) {
             return Column(
               mainAxisSize: MainAxisSize.min,
@@ -34,10 +33,10 @@ class UploadProgressDialog extends ConsumerWidget {
                   ),
                 )
               ],
-            )
+            );
           },
         ),
       ),
-    )
+    );
   }
 }
